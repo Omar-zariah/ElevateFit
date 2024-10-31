@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>elevateFit - Cart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #ff5733;
+            color: white;
+        }
+        .cart-container {
+            margin: 50px auto;
+            width: 80%;
+        }
+        .subtotal, .tax, .total {
+            text-align: right;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .subtotal span, .tax span, .total span {
+            margin-left: 10px;
+        }
+        .remove-item {
+            color: red;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .remove-item:hover {
+            text-decoration: underline;
+        }
+        .cart-footer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--making header-->
+    <header>
+        <nav id="nav">
+            <img src="images/logo-white.png" class="logo">
+            <ul class="menu-bar-side">
+                <li><a href="index.html" style=" all: unset;">Home</a></li>
+                <li><a href="Products.html" style=" all: unset;">Shope</a></li>
+                <li><a href="#" style=" all: unset;">about</a></li>
+                <li><a href="#" style=" all: unset;">contact us</a></li>
+            </ul>
+            <ul class="menu-bar">
+                <li>$<span id="totalAmount">230</span></li>
+                <li><i class='fas fa-shopping-cart'></i></li>
+            </ul>
+            <i class="fa fa-bars"></i>
+        </nav>
+    </header>
+
+    <!--Cart Page-->
+    <div class="cart-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody id="cartItems">
+                <tr>
+                    <td>
+                        <img src="Images/product-1.jpg" alt="Red Printed T-shirt" style="width: 100px;">
+                        <p>Red Printed Tshirt<br>Price: $50.00<br><a class="remove-item" onclick="removeItem(this, 50)">Remove</a></p>
+                    </td>
+                    <td><input type="number" value="1" min="1" onchange="updateSubtotal(this, 50)"></td>
+                    <td>$<span class="subtotal-value">50.00</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="Images/product-2.jpg" alt="Black Shoes" style="width: 100px;">
+                        <p>Red Printed Tshirt<br>Price: $60.00<br><a class="remove-item" onclick="removeItem(this, 60)">Remove</a></p>
+                    </td>
+                    <td><input type="number" value="1" min="1" onchange="updateSubtotal(this, 60)"></td>
+                    <td>$<span class="subtotal-value">60.00</span></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="Images/product-3.jpg" alt="Jeans" style="width: 100px;">
+                        <p>Red Printed Tshirt<br>Price: $75.00<br><a class="remove-item" onclick="removeItem(this, 75)">Remove</a></p>
+                    </td>
+                    <td><input type="number" value="1" min="1" onchange="updateSubtotal(this, 75)"></td>
+                    <td>$<span class="subtotal-value">75.00</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="cart-footer">
+            <p class="subtotal">Subtotal: $<span id="subtotalAmount">200.00</span></p>
+            <p class="tax">Tax: $<span id="taxAmount">30.00</span></p>
+            <p class="total">Total: $<span id="totalAmountFooter">230.00</span></p>
+        </div>
+    </div>
+
+    <!-------footer------->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Download Our App</h3>
+                    <p>Download App for Android and Ios mobile phone.</p>
+                    <div class="app-logo">
+                        <img src="images/play-store.png">
+                        <img src="images/app-store.png">
+                    </div>
+                </div>
+                <div class="footer-col-2">
+                    <img src="images/logo-white.png">
+                    <p>Our purpose is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+                </div>
+                <div class="footer-col-3">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Coupons</li>
+                        <li>Blog Post</li>
+                        <li>Return Policy</li>
+                        <li>Join Affiliate</li>
+                    </ul>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Twitter</li>
+                        <li>Instagram</li>
+                        <li>Youtube</li>
+                    </ul>
+                </div>
+            </div>
+            <!--add horizontal line and copyright text along with clickable link-->
+            <hr>
+            <a href="" class="copyright">Copyright 2024 - Made with ❤️ LorenzCipher</a>
+        </div>
+    </div>
+
+    <script>
+        function updateSubtotal(quantityInput, price) {
+            const row = quantityInput.parentElement.parentElement;
+            const subtotalCell = row.querySelector('.subtotal-value');
+            const newSubtotal = quantityInput.value * price;
+            subtotalCell.textContent = newSubtotal.toFixed(2);
+            updateCartTotal();
+        }
+
+        function updateCartTotal() {
+            const subtotalValues = document.querySelectorAll('.subtotal-value');
+            let subtotal = 0;
+            subtotalValues.forEach(value => {
+                subtotal += parseFloat(value.textContent);
+            });
+            const tax = subtotal * 0.15; // Assuming tax is 15%
+            const total = subtotal + tax;
+
+            document.getElementById('subtotalAmount').textContent = subtotal.toFixed(2);
+            document.getElementById('taxAmount').textContent = tax.toFixed(2);
+            document.getElementById('totalAmount').textContent = total.toFixed(2);
+            document.getElementById('totalAmountFooter').textContent = total.toFixed(2);
+        }
+
+        function removeItem(removeLink, price) {
+            const row = removeLink.parentElement.parentElement.parentElement;
+            row.remove();
+            updateCartTotal();
+        }
+    </script>
+</body>
+
+</html>
