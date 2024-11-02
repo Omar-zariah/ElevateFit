@@ -7,6 +7,52 @@
 body{
     font-family: 'Poppins', sans-serif;
 }
+/* Base Styles - Desktop First Approach */
+
+/* Responsive Breakpoints */
+
+/* Tablet View: max-width 768px */
+@media (max-width: 768px) {
+    nav ul {
+        display: block; /* Stack nav items vertically */
+        text-align: center;
+    }
+    .menu-bar, .menu-bar-side {
+        display: none; /* Hide regular nav items on tablet */
+    }
+    .fa-bars {
+        display: block; /* Show hamburger menu icon */
+        cursor: pointer;
+    }
+    .row {
+        flex-direction: column; /* Stack rows vertically */
+        text-align: center;
+    }
+    .col-4 {
+        flex-basis: 45%; /* Adjust product grid for 2 columns */
+        margin-bottom: 20px;
+    }
+}
+
+/* Mobile View: max-width 480px */
+@media (max-width: 480px) {
+    header .content {
+        left: 20px; /* Adjust header text positioning */
+        width: 80%;
+    }
+    .col-2 img {
+        max-width: 100%; /* Ensure images fit within mobile screen */
+    }
+    .col-4 {
+        flex-basis: 100%; /* Single column layout for products */
+        margin-bottom: 10px;
+    }
+    .footer {
+        padding: 40px 10px; /* Reduce footer padding */
+        font-size: 12px; /* Adjust footer text size */
+    }
+}
+
 
 .navbar{
     display: flex;
@@ -34,6 +80,7 @@ a{
 p{
     color:#555;
 }
+
 .container{
     max-width: 1300px;/*width of the header section will not be more than 1300px*/
     margin: auto;

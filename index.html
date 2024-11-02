@@ -4,452 +4,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--we have added this view port tag and set initial scale to 1 so that our side shoudl be adjustable according to different devices especially for mobile devices-->
-    <title>elevateFit | The #1 Ecommerce Website </title>
+    <title>elevateFit | The #1 Ecommerce Website</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/banner.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <!--poppins font from google fonts website then select popping select some types and then embed-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!--link to connect to font awesome 4 to use different icons, just type font awesome 4 cdn and click on first link and copy the url and past it here with rel="stylesheet"-->
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!---- icon cdn link---->
-
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <!--- owl carsoul ---->
+    <script src="js/product.js" defer></script>
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
-
-    <!--making header-->
+    <!-- Header -->
     <header>
-
         <nav id="nav">
-
-            <img src="images/logo-white.png" class="logo">
-
+            <img src="images/logo-white.png" class="logo" alt="elevateFit Logo">
             <ul class="menu-bar-side">
-                <li><a href="index.html" style=" all: unset;">Home</a></li>
-                <li><a href="Products.html" style=" all: unset;">Shope</a></li>
-                <li><a href="#" style=" all: unset;">about</a></li>
-                <li><a href="#" style=" all: unset;">contact us</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Products.html">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact Us</a></li>
             </ul>
-
             <ul class="menu-bar">
-
-                <li>&#36;0.00</li>
-                <li><i class='fas fa-shopping-cart'></i></li>
-
+                <li>$0.00</li>
+                <li><a href="cart.html"><i class='fas fa-shopping-cart'></i></a></li>
             </ul>
-
             <i class="fa fa-bars"></i>
         </nav>
-
-
-        <div class="content">
-
-            <h2 class="heading">
-                Raining Offers For Hot Summer!
-            </h2>
-
-            <h4>
-                25% Off On All Products
-            </h4>
-
-            <button class="shopNow">
-                shop now
-            </button>
-            <button class="findMore">
-                find more
-            </button>
-
+        <div class="content-container">
+            <div class="content" style="position: absolute; top: 50%; left: 30%; transform: translate(-50%, -50%);">
+                <h2 class="heading">Raining Offers For Hot Summer!</h2>
+                <h4>25% Off On All Products</h4>
+                <a href="Products.html"><button class="shopNow">Shop Now</button></a>
+                <a href="Products.html"><button class="findMore">Find More</button></a>
+            </div>
         </div>
-
     </header>
-    <!--- end header --->
 
-    <!--Featured categories-->
-  
-    <div class="categories">
-
-
-       
+    <!-- Featured Categories -->
+    <section class="categories">
         <div class="small container">
             <div class="row">
-
-                <!--3 columns for 3 images-->
                 <div class="col-3">
-                    <img src="images/category-1.jpg" alt="">
+                    <img src="images/category-1.jpg" alt="Category 1">
                 </div>
                 <div class="col-3">
-                    <img src="images/category-2.jpg" alt="">
+                    <img src="images/category-2.jpg" alt="Category 2">
                 </div>
                 <div class="col-3">
-                    <img src="images/category-3.jpg" alt="">
+                    <img src="images/category-3.jpg" alt="Category 3">
                 </div>
-
             </div>
         </div>
+    </section>
 
-    </div>
-
-    <!--Featured Products-->
-    <!--using same class small container to maintain same styling-->
-
-    <div class="small container">
-      
+    <!-- Featured Products -->
+    <section class="small container">
         <h2 class="title">Featured Products</h2>
         <div class="row">
-         
-
-            
-            <div class="col-4">
-                <a href="product-detail.html"><img src="images/product-1.jpg"></a>
-                <a href="product-detail.html">
-                    <h4>Red Printed T-shirt</h4>
-                </a>
+            <div class="col-4" data-category="clothing" data-name="Red Printed T-shirt" data-price="50">
+                <a href="product-detail.html" onclick="viewProduct(1)"><img src="images/product-1.jpg" alt="Red Printed T-shirt"></a>
+                <h4>Red Printed T-shirt</h4>
+                <button class="add-to-cart-btn" onclick="addToCart('Red Printed T-shirt', 50)">Add to Cart</button>
                 <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
                 </div>
                 <p>$50.00</p>
             </div>
-
-            <div class="col-4">
-                <a href="product-detail.html"><img src="images/product-2.jpg"></a>
-                <a href="product-detail.html">
-                <h4>Red Printed T-shirt</h4>
+            <div class="col-4" data-category="clothing" data-name="Blue Printed T-shirt" data-price="60">
+                <a href="product-detail.html" onclick="viewProduct(2)"><img src="images/product-2.jpg" alt="Blue Printed T-shirt"></a>
+                <h4>Blue Printed T-shirt</h4>
+                <button class="add-to-cart-btn" onclick="addToCart('Blue Printed T-shirt', 60)">Add to Cart</button>
                 <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
                 </div>
-                <p>$50.00</p>
+                <p>$60.00</p>
             </div>
-
-            <div class="col-4">
-                <a href="product-detail.html"><img src="images/product-3.jpg"></a>
-                <a href="product-detail.html">
-                <h4>Red Printed T-shirt</h4>
+            <div class="col-4" data-category="clothing" data-name="Black Printed T-shirt" data-price="45">
+                <a href="product-detail.html" onclick="viewProduct(3)"><img src="images/product-3.jpg" alt="Black Printed T-shirt"></a>
+                <h4>Black Printed T-shirt</h4>
+                <button class="add-to-cart-btn" onclick="addToCart('Black Printed T-shirt', 45)">Add to Cart</button>
                 <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
                 </div>
-                <p>$50.00</p>
-            </div>
-
-            <div class="col-4">
-                <a href="product-detail.html"><img src="images/product-4.jpg"></a>
-                <a href="product-detail.html">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-
-                </div>
-                <p>$50.00</p>
+                <p>$45.00</p>
             </div>
         </div>
+    </section>
 
-        
-
+    <!-- Latest Products -->
+    <section class="small container">
         <h2 class="title">Latest Products</h2>
         <div class="row">
-
-            <div class="col-4">
-                <img src="images/product-5.jpg">
-                <h4>Red Printed T-shirt</h4>
+            <div class="col-4" data-category="electronics" data-name="Smart Band 4" data-price="99">
+                <a href="product-detail.html" onclick="viewProduct(5)"><img src="images/product-5.jpg" alt="Smart Band 4"></a>
+                <h4>Smart Band 4</h4>
+                <button class="add-to-cart-btn" onclick="addToCart('Smart Band 4', 99)">Add to Cart</button>
                 <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
                 </div>
-                <p>$50.00</p>
+                <p>$99.00</p>
             </div>
-
-            <div class="col-4">
-                <img src="images/product-6.jpg">
-                <h4>Red Printed T-shirt</h4>
+            <div class="col-4" data-category="electronics" data-name="Wireless Headphones" data-price="120">
+                <a href="product-detail.html" onclick="viewProduct(6)"><img src="images/product-6.jpg" alt="Wireless Headphones"></a>
+                <h4>Wireless Headphones</h4>
+                <button class="add-to-cart-btn" onclick="addToCart('Wireless Headphones', 120)">Add to Cart</button>
                 <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
                 </div>
-                <p>$50.00</p>
+                <p>$120.00</p>
             </div>
-
-            <div class="col-4">
-                <img src="images/product-7.jpg">
-                <h4>Red Printed T-shirt</h4>
+            <div class="col-4" data-category="accessories" data-name="Fitness Tracker" data-price="85">
+                <a href="product-detail.html" onclick="viewProduct(7)"><img src="images/product-7.jpg" alt="Fitness Tracker"></a>
+                <h4>Fitness Tracker</h4>
+                <button class="add-to-cart-btn" onclick="addToCart('Fitness Tracker', 85)">Add to Cart</button>
                 <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
                 </div>
-                <p>$50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="images/product-8.jpg">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-
-                </div>
-                <p>$50.00</p>
+                <p>$85.00</p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-4">
-                <img src="images/product-9.jpg">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
+    </section>
 
-            <div class="col-4">
-                <img src="images/product-10.jpg">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="images/product-11.jpg">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-
-            <div class="col-4">
-                <img src="images/product-12.jpg">
-                <h4>Red Printed T-shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"
-                        aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
-
-                </div>
-                <p>$50.00</p>
-            </div>
-        </div>
-
-    </div>
-
-    <!--offer-->
-    <div class="offer">
+    <!-- Offer Section -->
+    <section class="offer">
         <div class="container">
             <div class="row">
-
                 <div class="col-2">
-                    <img src="images/exclusive.png" class="offer-img">
+                    <img src="images/exclusive.png" class="offer-img" alt="Exclusive Offer">
                 </div>
-
                 <div class="col-2">
                     <p>Exclusively available on elevateFit</p>
                     <h1>Smart Band 4</h1>
-                    <small>
-                        The Mi Smart Band 4 features a 39.9% larger (than Mi Band 3) AMOLED color full-touch display
-                        with adjustable brightness, so everything is clear as can be
-                    </small>
-                    <a href="" class="btn">Buy Now
-                        &#8594;</a>
-
+                    <small>The Mi Smart Band 4 features a 39.9% larger (than Mi Band 3) AMOLED color full-touch display with adjustable brightness, so everything is clear as can be.</small>
+                    <a href="#" class="btn">Buy Now &#8594;</a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!----------------testimonials-------------->
-
-    <div class="testimonial">
+    <!-- Testimonials -->
+    <section class="testimonial">
         <div class="small container">
             <div class="row">
-
-                
                 <div class="col-3">
-
-                    
-                    <i class="fa fa-quote-left" aria-hidden="true"></i>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the prinitng and typesetting industry. Lorem Ipsum has been
-                        the industry;s standard dummy text ever
-                    </p>
+                    <i class="fa fa-quote-left"></i>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     <div class="rating">
-                        <i class="fa fa-star"
-                            aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
                     </div>
-                    <img src="images/user-1.png">
+                    <img src="images/user-1.png" alt="User 1">
                     <h3>Sean Parker</h3>
-
                 </div>
-
                 <div class="col-3">
-
-                    
-                    <i class="fa fa-quote-left" aria-hidden="true"></i>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the prinitng and typesetting industry. Lorem Ipsum has been
-                        the industry;s standard dummy text ever
-                    </p>
+                    <i class="fa fa-quote-left"></i>
+                    <p>Great quality and amazing service. Totally satisfied with my purchase!</p>
                     <div class="rating">
-                        <i class="fa fa-star"
-                            aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
                     </div>
-                    <img src="images/user-2.png">
-                    <h3>Mike Smith</h3>
-
+                    <img src="images/user-2.png" alt="User 2">
+                    <h3>Jessica Wright</h3>
                 </div>
-
                 <div class="col-3">
-
-                    <i class="fa fa-quote-left" aria-hidden="true"></i>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the prinitng and typesetting industry. Lorem Ipsum has been
-                        the industry;s standard dummy text ever
-                    </p>
+                    <i class="fa fa-quote-left"></i>
+                    <p>Value for money and excellent quality products. Highly recommended!</p>
                     <div class="rating">
-                        <i class="fa fa-star"
-                            aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
                     </div>
-                    <img src="images/user-3.png">
-                    <h3>Mable Joe</h3>
-
+                    <img src="images/user-3.png" alt="User 3">
+                    <h3>Michael Brown</h3>
                 </div>
-
             </div>
         </div>
-    </div>
+    </section>
 
-    <!----------brands-------------->
-
-    <div class="brands">
+    <!-- Brands -->
+    <section class="brands">
         <div class="small container">
             <div class="row">
                 <div class="col-5">
-                    <img src="images/logo-godrej.png">
+                    <img src="images/logo-godrej.png" alt="Godrej">
                 </div>
-
                 <div class="col-5">
-                    <img src="images/logo-oppo.png">
+                    <img src="images/logo-oppo.png" alt="Oppo">
                 </div>
-
-
                 <div class="col-5">
-                    <img src="images/logo-coca-cola.png">
+                    <img src="images/logo-coca-cola.png" alt="Coca-Cola">
                 </div>
-
-
                 <div class="col-5">
-                    <img src="images/logo-paypal.png">
+                    <img src="images/logo-paypal.png" alt="PayPal">
                 </div>
-
-
                 <div class="col-5">
-                    <img src="images/logo-philips.png">
+                    <img src="images/logo-philips.png" alt="Philips">
                 </div>
-
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-------footer------->
-    <div class="footer">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="row">
-
-           
                 <div class="footer-col-1">
                     <h3>Download Our App</h3>
-                    <p>Download App for Android and Ios mobile phone.</p>
-
-                  
+                    <p>Download App for Android and iOS mobile phone.</p>
                     <div class="app-logo">
-                        <img src="images/play-store.png">
-                        <img src="images/app-store.png">
+                        <img src="images/play-store.png" alt="Play Store">
+                        <img src="images/app-store.png" alt="App Store">
                     </div>
-
                 </div>
-
                 <div class="footer-col-2">
-                    <img src="images/logo-white.png">
-                    <p>Our purpose is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.
-                    </p>
+                    <img src="images/logo-white.png" alt="elevateFit">
+                    <p>Our purpose is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
                 </div>
-
                 <div class="footer-col-3">
                     <h3>Useful Links</h3>
                     <ul>
@@ -458,9 +267,7 @@
                         <li>Return Policy</li>
                         <li>Join Affiliate</li>
                     </ul>
-
                 </div>
-
                 <div class="footer-col-4">
                     <h3>Follow Us</h3>
                     <ul>
@@ -469,18 +276,12 @@
                         <li>Instagram</li>
                         <li>Youtube</li>
                     </ul>
-
                 </div>
             </div>
-            
             <hr>
-            <a href="" class="copyright">Copyright 2024 - Made with ❤️ LorenzCipher</a>
+            <p class="copyright">&copy; 2024 - Made with ❤️ by LorenzCipher</p>
         </div>
-    </div>
-
-    <!-----------------JS----------------------->
-
-
+    </footer>
 </body>
 
 </html>

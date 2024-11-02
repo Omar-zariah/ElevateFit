@@ -4,46 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>elevateFit - Checkout</title>
+    <title>Product Order Form</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/detail.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/script.js" defer></script>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
         .checkout-container {
             margin: 50px auto;
             width: 80%;
             display: flex;
             justify-content: space-between;
+            gap: 20px;
         }
-        .checkout-form {
-            width: 60%;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-        }
+
+        .checkout-form,
         .order-summary {
-            width: 35%;
-            padding: 20px;
+            width: 48%;
+            padding: 30px;
             border: 1px solid #ddd;
             border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .checkout-form input, .checkout-form select {
+
+        .checkout-form h2,
+        .order-summary h3 {
+            text-align: center;
+            color: #333;
+        }
+
+        .checkout-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .checkout-form input,
+        .checkout-form select {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 20px;
             border-radius: 5px;
             border: 1px solid #ccc;
+            font-size: 16px;
         }
-        .order-summary h3 {
-            background-color: #ff5733;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            border-radius: 5px;
+
+        .order-summary p {
+            display: flex;
+            justify-content: space-between;
         }
+
         .place-order-btn {
             width: 100%;
             padding: 15px;
@@ -54,7 +68,10 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
         }
+
         .place-order-btn:hover {
             background-color: #5da25a;
         }
@@ -62,125 +79,58 @@
 </head>
 
 <body>
-    <!--making header-->
-    <header>
-        <nav id="nav">
-            <img src="images/logo-white.png" class="logo">
-            <ul class="menu-bar-side">
-                <li><a href="index.html" style=" all: unset;">Home</a></li>
-                <li><a href="Products.html" style=" all: unset;">Shope</a></li>
-                <li><a href="#" style=" all: unset;">about</a></li>
-                <li><a href="#" style=" all: unset;">contact us</a></li>
-            </ul>
-            <ul class="menu-bar">
-                <li>$<span id="totalAmount">0.00</span></li>
-                <li><i class='fas fa-shopping-cart'></i></li>
-            </ul>
-            <i class="fa fa-bars"></i>
-        </nav>
-    </header>
-
-    <!--Checkout Page-->
     <div class="checkout-container">
         <!-- Order Form -->
         <div class="checkout-form">
             <h2>Product Order Form</h2>
-            <form>
+            <form action="#" method="post">
                 <label for="firstName">First Name *</label>
-                <input type="text" id="firstName" required>
+                <input type="text" name="first_name" id="firstName" required>
 
                 <label for="lastName">Last Name *</label>
-                <input type="text" id="lastName" required>
-
-                <label for="companyName">Company Name (Optional)</label>
-                <input type="text" id="companyName">
+                <input type="text" name="last_name" id="lastName" required>
 
                 <label for="country">Country *</label>
-                <select id="country" required>
-                    <option value="">Select a country...</option>
+                <select name="country" id="country" required>
+                    <option value="">Select a country *</option>
                     <option value="Mexico">Mexico</option>
                     <option value="USA">USA</option>
                     <option value="Canada">Canada</option>
                 </select>
 
-                <label for="address">Street Address *</label>
-                <input type="text" id="address" required>
+                <label for="streetAddress">Street Address *</label>
+                <input type="text" name="street_address" id="streetAddress" required>
 
-                <label for="town">Town / City *</label>
-                <input type="text" id="town" required>
+                <label for="city">Town / City *</label>
+                <input type="text" name="city" id="city" required>
 
-                <label for="state">State / County *</label>
-                <input type="text" id="state" required>
-
-                <label for="zip">Postcode / ZIP *</label>
-                <input type="text" id="zip" required>
+                <label for="postcode">Postcode / ZIP *</label>
+                <input type="text" name="postcode" id="postcode" required>
 
                 <label for="phone">Phone *</label>
-                <input type="tel" id="phone" required>
+                <input type="tel" name="phone" id="phone" pattern="\d{10,}" title="Please enter a valid phone number" required>
 
                 <label for="email">Email Address *</label>
-                <input type="email" id="email" required>
+                <input type="email" name="email" id="email" required>
             </form>
         </div>
 
         <!-- Order Summary -->
         <div class="order-summary">
             <h3>Your Order</h3>
-            <p>Product Name x 2(Qty)<span style="float: right;">$88.00</span></p>
-            <p>Subtotal<span style="float: right;">$88.00</span></p>
-            <p>Shipping<span style="float: right; color: #66bb6a;">Free shipping</span></p>
+            <p>Product Name x 2 <span>$88.00</span></p>
+            <p>Subtotal <span>$88.00</span></p>
+            <p>Shipping <span style="color: #66bb6a;">Free shipping</span></p>
 
             <h4>Payment Methods</h4>
             <form>
-                <input type="radio" name="paymentMethod" value="bank" checked> Direct Bank Transfer<br>
-                <p style="font-size: 14px; color: #666;">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
-
-                <input type="radio" name="paymentMethod" value="cod"> Cash on Delivery<br>
-                <input type="radio" name="paymentMethod" value="paypal"> Paypal<br>
+                <input type="radio" name="payment_method" value="bank_transfer" checked> Direct Bank Transfer<br>
+                <p>Make your payment directly into our bank account. Your order will not be shipped until funds have cleared.</p>
+                <input type="radio" name="payment_method" value="cod"> Cash on Delivery<br>
+                <input type="radio" name="payment_method" value="paypal"> PayPal<br>
             </form>
 
             <button class="place-order-btn">Place Order</button>
-        </div>
-    </div>
-
-    <!-------footer------->
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col-1">
-                    <h3>Download Our App</h3>
-                    <p>Download App for Android and Ios mobile phone.</p>
-                    <div class="app-logo">
-                        <img src="images/play-store.png">
-                        <img src="images/app-store.png">
-                    </div>
-                </div>
-                <div class="footer-col-2">
-                    <img src="images/logo-white.png">
-                    <p>Our purpose is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
-                </div>
-                <div class="footer-col-3">
-                    <h3>Useful Links</h3>
-                    <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
-                    </ul>
-                </div>
-                <div class="footer-col-4">
-                    <h3>Follow Us</h3>
-                    <ul>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
-                        <li>Youtube</li>
-                    </ul>
-                </div>
-            </div>
-            <!--add horizontal line and copyright text along with clickable link-->
-            <hr>
-            <a href="" class="copyright">Copyright 2024 - Made with ❤️ LorenzCipher</a>
         </div>
     </div>
 </body>

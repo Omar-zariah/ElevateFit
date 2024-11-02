@@ -159,14 +159,57 @@
     </div>
 
     <script>
-        function updateSubtotal(quantityInput, price) {
-            const row = quantityInput.parentElement.parentElement;
-            const subtotalCell = row.querySelector('.subtotal-value');
-            const newSubtotal = quantityInput.value * price;
-            subtotalCell.textContent = newSubtotal.toFixed(2);
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCartItems();
+            updateCartTotal();
+        });
+    
+        function renderCartItems() {
+            // Get existing cart data from local storage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cartItems');
+    
+            // Clear any existing rows
+            cartItemsContainer.innerHTML = '';
+    
+            // Iterate through each item in the cart and add it to the cart table
+            cart.forEach(product => {
+                const row = document.createElement('tr');
+    
+                row.innerHTML = `
+                    <td>
+                        <p>${product.name}<br>Price: $${product.price.toFixed(2)}<br><a class="remove-item" onclick="removeItem('${product.name}')">Remove</a></p>
+                    </td>
+                    <td><input type="number" value="${product.quantity}" min="1" onchange="updateQuantity('${product.name}', this.value)"></td>
+                    <td>$<span class="subtotal-value">${(product.price * product.quantity).toFixed(2)}</span></td>
+                `;
+    
+                cartItemsContainer.appendChild(row);
+            });
+        }
+    
+        function updateQuantity(productName, newQuantity) {
+            // Get cart data from local storage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+            // Find the product and update its quantity
+            let product = cart.find(item => item.name === productName);
+            if (product) {
+                product.quantity = parseInt(newQuantity);
+                if (product.quantity <= 0) {
+                    removeItem(productName);
+                    return;
+                }
+            }
+    
+            // Save updated cart to local storage
+            localStorage.setItem('cart', JSON.stringify(cart));
+    
+            // Re-render cart items and update totals
+            renderCartItems();
             updateCartTotal();
         }
-
+    
         function updateCartTotal() {
             const subtotalValues = document.querySelectorAll('.subtotal-value');
             let subtotal = 0;
@@ -175,19 +218,29 @@
             });
             const tax = subtotal * 0.15; // Assuming tax is 15%
             const total = subtotal + tax;
-
+    
             document.getElementById('subtotalAmount').textContent = subtotal.toFixed(2);
             document.getElementById('taxAmount').textContent = tax.toFixed(2);
             document.getElementById('totalAmount').textContent = total.toFixed(2);
             document.getElementById('totalAmountFooter').textContent = total.toFixed(2);
         }
-
-        function removeItem(removeLink, price) {
-            const row = removeLink.parentElement.parentElement.parentElement;
-            row.remove();
+    
+        function removeItem(productName) {
+            // Get cart data from local storage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+            // Remove the product from the cart
+            cart = cart.filter(item => item.name !== productName);
+    
+            // Save updated cart to local storage
+            localStorage.setItem('cart', JSON.stringify(cart));
+    
+            // Re-render cart items and update totals
+            renderCartItems();
             updateCartTotal();
         }
     </script>
+    
 </body>
 
 </html>
